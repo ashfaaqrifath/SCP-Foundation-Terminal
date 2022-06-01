@@ -1,7 +1,10 @@
+import colorama
 import requests
+from bs4 import BeautifulSoup
 import time
 import pyttsx3
-from bs4 import BeautifulSoup
+from colorama import Fore, Back
+colorama.init(autoreset=True)
 
 
 def speak(talk):
@@ -13,6 +16,13 @@ def speak(talk):
     engine.runAndWait()
 
 
+print('''
+                 █▀▀▀█  █▀▀█  █▀▀█   █▀▀▀  █▀▀▀█  █  █  █▄  █  █▀▀▄  █▀▀█ ▀▀█▀▀ ▀█▀  █▀▀▀█  █▄  █ 
+                 ▀▀▀▄▄  █     █▄▄█   █▀▀▀  █   █  █  █  █ █ █  █  █  █▄▄█   █    █   █   █  █ █ █ 
+                 █▄▄▄█  █▄▄█  █      █     █▄▄▄█  █▄▄█  █  ▀█  █▄▄▀  █  █   █   ▄█▄  █▄▄▄█  █  ▀█
+                                    SECURE   ●   CONTAIN   ●   PROTECT''')
+
+
 usr = input("Enter SCP item number: ")
 
 r = requests.get(f'https://scp-wiki.wikidot.com/scp-{usr}')
@@ -21,24 +31,30 @@ s = soup.find('div', id='page-content')
 
 paras = len(s.find_all("p"))
 
-print(soup.title.text.center(100))
+print(Fore.GREEN + soup.title.text.center(100))
 print("")
 
 paras_num = range(1, paras)
 num_list = list(paras_num)
 
 bro = f"{s.find_all('p')[0].text}\n"
-print(bro.center(100))
+print(Fore.YELLOW + bro.center(100))
 
 try:
     for i in num_list:
         yo = f"{s.find_all('p')[i].text}\n"
-        print(yo.center(100))
+        print(Fore.GREEN + yo.center(100))
 except IndexError:
-    print("END OF LOG")
+    print(Fore.RED + "<<< END OF DOCUMENT >>>".center(100))
+print(Fore.RED + "<<< END OF DOCUMENT >>>".center(100))
+
+
+speak(f"Item number : SCP-{usr}")
+
+sis = s.find_all('p')[2].text
+speak(sis)
 
 lines = s.find_all('p')[3]
-speak(f"SCP-{usr}")
 speak(lines)
 
 
