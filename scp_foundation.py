@@ -41,15 +41,18 @@ print('''
                  █▄▄▄█  █▄▄█  █      █     █▄▄▄█  █▄▄█  █  ▀█  █▄▄▀  █  █   █   ▄█▄  █▄▄▄█  █  ▀█
                                     SECURE   ●   CONTAIN   ●   PROTECT''')
 print("")
-print(Back.RED + " WARNING. THE SCP FOUNDATION DATABASE IS CLASSIFIED. UNAUTHORIZED PERSONAL IS STRICTLY PROHIBITED. ".center(100))
-casper_speak("WARNING. THE SCP FOUNDATION DATABASE IS CLASSIFIED. UNAUTHORIZED PERSONAL IS STRICTLY PROHIBITED.")
-dum = input("   Enter login credentials: ")
+print("         ", Back.RED + " WARNING. THE SCP FOUNDATION DATABASE IS CLASSIFIED. UNAUTHORIZED PERSONAL IS STRICTLY PROHIBITED ")
+# casper_speak("WARNING. THEE SCP FOUNDATION DATABASE IS CLASSIFIED. UNAUTHORIZED PERSONAL IS STRICTLY PROHIBITED.")
 
-print("Validating credentials...")
-casper_speak("Validating credentials")
-time.sleep(0.05)
-print("Clearance granted.")
-casper_speak("Clearance granted.")
+
+# dum = input("   Enter login credentials: ")
+
+# print("Verifying credentials...")
+# casper_speak("Verifying credentials")
+# time.sleep(0.05)
+
+# print("Clearance granted.")
+# casper_speak("Clearance granted.")
 
 casper_speak("Enter SCP item number.")
 usr = input("   Enter SCP item number: ")
@@ -81,8 +84,37 @@ print(Fore.YELLOW + bro.center(100))
 
 try:
     for i in num_list:
-        yo = f"{s.find_all('p')[i].text}\n"
-        print(Fore.GREEN + yo.center(100))
+        txt = f"{s.find_all('p')[i].text}"
+
+
+        def format_paragraph(paragraph, length, left, right):
+            
+            words = paragraph.split()
+            lines = []
+            curline = '         ' * (left - 1)  # we add a space before the first word
+
+            while words:
+                word = words.pop(0)  # process the next word
+
+                # +1 in the next line is for the space.
+                if len(curline) + 1 + len(word) > length - right:
+                    # line would have been too long, start a new line
+                    lines.append(curline)
+                    curline = '         ' * (left - 1)
+                curline += " " + word
+
+            lines.append(curline)
+
+            return '\n'.join(lines)
+
+
+        # we need to work on one paragraph at a time
+        paragraphs = txt.split('\n\n')
+
+        for paragraph in paragraphs:
+            print(format_paragraph(paragraph, 80, left=4, right=5))
+            print()  # next paragraph
+
 except IndexError:
     print(Fore.RED + "<<< END OF DOCUMENT >>>".center(100))
 print(Fore.RED + "<<< END OF DOCUMENT >>>".center(100))
@@ -97,4 +129,4 @@ lines = s.find_all('p')[3]
 casper_speak(lines)
 
 
-time.sleep(1200)
+time.sleep(3600)
