@@ -1,2 +1,2 @@
 # SCP-Foundation-Terminal
-SCP Wiki web scraper.
+A web scraping program written in python that allows the user to retrieve data from the SCP wiki site.
