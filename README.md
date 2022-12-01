@@ -8,9 +8,9 @@ A web scraping program written in python that allows the user to retrieve data f
 
 
 ## Libraries Used
-* Cryptography
+* Requests
 ```
-  pip install cryptography
+  pip install requests
 ```
 
 * Colorama
@@ -18,9 +18,39 @@ A web scraping program written in python that allows the user to retrieve data f
   pip install colorama
 ```
 
+* BeautifulSoup
+```
+  pip install beautifulsoup4
+```
+
+* Register
+```
+  pip install register
+```
+
+* Time
+```
+  pip install time
+```
+
+* Subprocess
+```
+  pip install subprocess
+```
+
+* OS
+```
+  pip install os
+```
+
+* Sys
+```
+  pip install sys
+```
+
 ## Features
 
-- Encryption / Decryption
+- Get informaton about any scp object.
 - Placeholder
 
 
