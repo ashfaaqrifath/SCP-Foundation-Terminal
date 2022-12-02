@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img width="300" src="casper_title.png" alt="scp"><br>
+  <img width="300" src="scp.png" alt="scp"><br>
 </h1>
 
 # SCP Foundation Terminal
