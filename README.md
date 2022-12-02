@@ -1,8 +1,6 @@
 <h1 align="center">
-  <img width="300" src="scp.png" alt="scp"><br>
+  <img width="600" src="scp.png" alt="scp"><br>
 </h1>
-
-# SCP Foundation Terminal
 
 A web scraping program written in python that allows the user to retrieve data from the SCP Foundation wiki site.
 
