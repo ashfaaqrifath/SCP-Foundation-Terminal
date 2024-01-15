@@ -34,7 +34,7 @@ def lock_protocol():
         print(Fore.YELLOW + "    Bypassing lockout protocol")
         for i in range(101):
             progress(i)
-            time.sleep(0.01)
+            time.sleep(0.0001)
 
         print()
         print(Fore.GREEN + "    Lockout protocol disabled")
@@ -53,4 +53,5 @@ def lock_protocol():
         print("")
         print("      ", Fore.BLACK + Back.RED + " INVALID AUTHORIZATION CODE ")
         speak("Invalid authorization code")
+        print(Fore.RED + "       << TERMINAL LOCKED >>")
         time.sleep(7300)
