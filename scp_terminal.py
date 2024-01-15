@@ -75,8 +75,8 @@ def command_engine(mode):
 
             elif usr == "help":
                 print("")
-                print("       ●", Fore.CYAN + "Enter SCP item number :", Fore.LIGHTBLACK_EX + "Displays SCP item information")
-                print("       ●", Fore.CYAN + "random :", Fore.LIGHTBLACK_EX + "Displays information for a random artifact")
+                print("       ●", Fore.CYAN + "SCP item number :", Fore.LIGHTBLACK_EX + "Displays SCP item information")
+                print("       ●", Fore.CYAN + "random :", Fore.LIGHTBLACK_EX + "Displays information for a random SCP item")
                 print("       ●", Fore.CYAN + "del :", Fore.LIGHTBLACK_EX + "Deletes all SCP files")
                 print("       ●", Fore.CYAN + "lock :", Fore.LIGHTBLACK_EX + "Emergency lockout protocol")
                 print("       ●", Fore.CYAN + "incog :", Fore.LIGHTBLACK_EX + "Incognito mode")
@@ -161,7 +161,7 @@ def command_engine(mode):
                 chronicle_log(f"     Accessing SCP-{random_scp} files", mode)
                 for i in range(101):
                     progress(i)
-                    time.sleep(0.01)
+                    time.sleep(0.0001)
 
                 print()
                 print(Fore.GREEN + "        Access granted")
@@ -203,8 +203,7 @@ def command_engine(mode):
                         paragraphs = txt.split('\n\n')
 
                         for paragraph in paragraphs:
-                            q = format_paragraph(
-                                paragraph, 80, left=4, right=5)
+                            q = format_paragraph(paragraph, 80, left=4, right=5)
                             print(q)
                             print("")  # next paragraph
 
@@ -214,15 +213,19 @@ def command_engine(mode):
                 print(Fore.LIGHTBLACK_EX + "File saved locally".center(100))
                 chronicle_log("<< File saved locally >>".center(100), mode)
                 print("")
-                print(Fore.LIGHTBLACK_EX +
-                    "Copyright © 2024 Ashfaaq Rifath".center(100))
+                print(Fore.LIGHTBLACK_EX +"Copyright © 2024 Ashfaaq Rifath".center(100))
 
                 save_path = "SCP object files"
                 save = os.path.join(save_path, f'SCP-{random_scp}.txt')
 
+                date = datetime.datetime.now().strftime("%D:%h:%H:%M:%S")
+                header = "SCP Foundation Terminal v2.1.5\n" + str(date) + f" \n<< PROPERTY OF THE SCP FOUNDATION >> \nSCP-{random_scp} File >>\n \n"
+                
                 orig_stdout = sys.stdout
                 f = open(save, 'w', encoding="utf-8")
                 sys.stdout = f
+
+                print(header)
 
                 for i in num_list:
                     txt = s.find_all('p')[i].text
@@ -252,6 +255,9 @@ def command_engine(mode):
                             paragraph, 80, left=4, right=5)
                         print(q)
                         print("")
+
+                print("<< END OF FILE >>".center(100))
+                print("Copyright © 2024 Ashfaaq Rifath - SCP Foundation Terminal v2.1.5".center(100))
                 sys.stdout = orig_stdout
                 f.close()
 
@@ -271,7 +277,7 @@ def command_engine(mode):
                 chronicle_log("END LOG >>", mode)
                 break
 
-            elif usr.startswith("scp"):
+            elif usr.lower().startswith("scp"):
                 get_num = re.search(r'\d+', usr)
 
                 if get_num:
@@ -294,7 +300,7 @@ def command_engine(mode):
                 chronicle_log(f"     Accessing SCP-{item_num} files", mode)
                 for i in range(101):
                     progress(i)
-                    time.sleep(0.01)
+                    time.sleep(0.0001)
 
                 print()
                 print(Fore.GREEN + "        Access granted")
@@ -352,9 +358,14 @@ def command_engine(mode):
                 save_path = "SCP object files"
                 save = os.path.join(save_path, f'SCP-{item_num}.txt')
 
+                date = datetime.datetime.now().strftime("%D:%h:%H:%M:%S")
+                header = "SCP Foundation Terminal v2.1.5\n" + str(date) + f" \n<< PROPERTY OF THE SCP FOUNDATION >> \nSCP-{item_num} File >>\n \n"
+
                 orig_stdout = sys.stdout
                 f = open(save, 'w', encoding="utf-8")
                 sys.stdout = f
+
+                print(header)
 
                 for i in num_list:
                     txt = s.find_all('p')[i].text
@@ -385,6 +396,8 @@ def command_engine(mode):
                         print(q)
                         print("")
 
+                print("<< END OF FILE >>".center(100))
+                print("Copyright © 2024 Ashfaaq Rifath - SCP Foundation Terminal v2.1.5".center(100))
                 sys.stdout = orig_stdout
                 f.close()
 
@@ -407,22 +420,22 @@ def command_engine(mode):
 print("")
 print(Fore.YELLOW + "      Connecting SCP terminal")
 
-# for i in range(101):
-#     progress(i)
-#     time.sleep(0.01)
+for i in range(101):
+    progress(i)
+    time.sleep(0.0001)
 
 print()
 print(Fore.GREEN + "           Systems online")
 print("")
 print(Fore.LIGHTBLACK_EX +
-      "Copyright © 2024 Ashfaaq Rifath - SCP Foundation Terminal v2.1.4")
+      "Copyright © 2024 Ashfaaq Rifath - SCP Foundation Terminal v2.1.5")
 time.sleep(1)
 os.system('cls')
 
 incognito = 0
 
 date = datetime.datetime.now().strftime("%D:%h:%H:%M:%S")
-chronicle_log(write="SCP Foundation Terminal v2.1.4\n" +
+chronicle_log(write="SCP Foundation Terminal v2.1.5\n" +
            str(date) + " \n<< ACTIVITY LOG >> \nBEGIN LOG >>\n \n", incog=incognito)
 
 print("")
@@ -433,10 +446,11 @@ print('''
                                     SECURE   ●   CONTAIN   ●   PROTECT''')
 print("")
 print("         ", Back.RED + " WARNING. THE SCP FOUNDATION DATABASE IS CLASSIFIED. UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED ")
-#speak("WARNING. THEE SCP FOUNDATION DATABASE IS CLASSIFIED. UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED.")
+speak("WARNING. THEE SCP FOUNDATION DATABASE IS CLASSIFIED. UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED.")
 print("")
 
 attempts = 3
+o5_code = 0
 
 while attempts > 0:
 
@@ -476,22 +490,21 @@ while attempts > 0:
         except FileNotFoundError:
             pass
 
-    o5_code = 0
-
     if login_pass in p and len(login_pass) == 4 or o5_code == 1:
 
-        if o5_code != 1 and login_name != "override":
+        if login_name == "override" and o5_code != 1:
+            print(Fore.GREEN + "       Override code accepted")
+            speak("Override code accepted")
+
+        if o5_code != 1:
             print("      ", Fore.BLACK + Back.GREEN + " ACCESS GRANTED ")
             speak("Access granted.")
 
-            print("")
-            print(Fore.GREEN + f"       Welcome {login_name}")
-            speak(f"       Welcome {login_name}")
-            chronicle_log(f"       Welcome {login_name}", incognito)
-        
-        elif login_name == "override":
-            print(Fore.GREEN + "       Override code accepted")
-            speak("Override code accepted")
+            if login_name != "override":
+                print("")
+                print(Fore.GREEN + f"       Welcome {login_name}")
+                speak(f"       Welcome {login_name}")
+                chronicle_log(f"       Welcome {login_name}", incognito)
 
         command_engine(incognito)
         break
@@ -514,4 +527,4 @@ if attempts == 0:
         command_engine(incognito)
 
 
-# Copyright (c) 2024 Ashfaaq Rifath - SCP Foundation Terminal v2.1.4
+# Copyright (c) 2024 Ashfaaq Rifath - SCP Foundation Terminal v2.1.5
