@@ -2,84 +2,128 @@
   <img width="600" src="scp.png" alt="scp"><br>
 </h1>
 
-This terminal based web scraping program retrieves data from the SCP Wiki site about the SCP Foundation, enabling users to easily access and save information about the fictional organization.
+# SCP Foundation Terminal
 
+> **"Secure. Contain. Protect."**
 
-## 👨‍💻Authors
+A Python-based terminal program that scrapes the [SCP Wiki](https://scp-wiki.wikidot.com) to retrieve, display, and save information about SCP objects — wrapped in an immersive, foundation-themed terminal experience with user authentication, activity logging, and security features.
 
-- [@ashfaaqrifath](https://www.github.com/ashfaaqrifath)
+> **Current Version:** v2.1.5
 
+---
 
-## 📕Packages Used
+## ✨ Features
 
-* shutil
+- 🔍 **SCP Lookup** — Retrieve detailed info on any SCP object directly from the SCP Wiki
+- 💾 **Save to File** — Save SCP object data as `.txt` files in the `SCP object files/` folder
+- 🔊 **Text-to-Speech** — Read out SCP entries using the speech engine
+- 👤 **User Registration & Login** — Register accounts with password authentication
+- 🔒 **Emergency Lockout** — Terminal lockout system for security
+- 🕶️ **Incognito Mode** — Browse without logging activity
+- 📋 **Activity Logging** — All terminal actions logged to `Activity Logs/`
+- 🖥️ **Terminal Override** — Admin-level override system
+- 🎨 **Colored Output** — Styled terminal UI with color formatting
+- 🔐 **Security Features** — Multiple layers of access control
+
+---
+
+## 📁 Project Structure
+
 ```
-  pip install shutil
-```
-* random
-```
-  pip install random
-```
-* datetime
-```
-  pip install datetime
-```
-* requests
-```
-  pip install requests
-```
-* BeautifulSoup
-```
-  pip install bs4
-```
-* pyttsx3
-```
-  pip install pyttsx3
-```
-* colorama
-```
-  pip install colorama
+SCP-Foundation-Terminal/
+├── Activity Logs/          # Auto-generated session activity logs
+├── SCP object files/       # Saved SCP data in .txt format
+├── Users/                  # Registered user data
+├── scp_terminal.py         # Main terminal entry point
+├── scp001.py               # SCP-001 special handler
+├── chronicle_engine.py     # Core data retrieval & scraping engine
+├── register.py             # User registration module
+├── lockout.py              # Emergency lockout handler
+├── speech_engine.py        # Text-to-speech module
+├── requirements.txt        # Python dependencies
+├── scp.png                 # SCP Foundation logo
+└── LICENSE
 ```
 
+---
 
-## 🛠️Functionalities
+## ⚙️ Requirements
 
-- Displays information for a given SCP object
-- Saves SCP information in text files
-- Emergency terminal lockout
-- Incognito mode
-- Activity logging
-- User registration
-- Password login
-- Terminal override
-- Security features
-- Colored outputs
+Python 3.x + the following packages:
 
+```bash
+pip install requests bs4 pyttsx3 colorama
+```
 
-## 📜License
+> `shutil`, `random`, and `datetime` are Python standard library modules — no install needed.
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-Copyright © 2023 Ashfaaq Rifath - SCP Foundation Terminal v2.1.3
+Or install everything at once using the requirements file:
 
+```bash
+pip install -r requirements.txt
+```
 
-## 🔰Badges
+---
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+## 🚀 Setup & Usage
 
-![GitHub followers](https://img.shields.io/github/followers/ashfaaqrifath?style=social)
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/ashfaaqrifath/SCP-Foundation-Terminal.git
+   cd SCP-Foundation-Terminal
+   ```
 
-![MIT License](https://img.shields.io/github/stars/ashfaaqrifath/Chat-Server?style=social)
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Register a new user:
+   ```bash
+   python register.py
+   ```
+
+4. Launch the terminal:
+   ```bash
+   python scp_terminal.py
+   ```
+
+5. Log in and start looking up SCP objects!
+
+---
+
+## 🗂️ How It Works
+
+| File | Role |
+|------|------|
+| `scp_terminal.py` | Main terminal UI — handles login, commands, and navigation |
+| `chronicle_engine.py` | Scrapes SCP Wiki using `requests` + `BeautifulSoup` |
+| `register.py` | Handles new user account creation |
+| `lockout.py` | Triggers emergency terminal lockout |
+| `speech_engine.py` | Reads SCP content aloud using `pyttsx3` |
+| `scp001.py` | Special handling for the classified SCP-001 entry |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Language:** Python 3
+- **Web Scraping:** `requests`, `BeautifulSoup4`
+- **TTS:** `pyttsx3`
+- **Terminal Styling:** `colorama`
+- **Data Source:** [scp-wiki.wikidot.com](https://scp-wiki.wikidot.com)
+
+---
 
 ## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ashfaaqrifath.github.io/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ashfaaqrifath/)
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/ashfaaqrifth)
- 🔗https://scp-wiki.wikidot.com
 
-##
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+- 🌐 [Portfolio](https://ashfaaqrifath.github.io/)
+- 💼 [LinkedIn](https://www.linkedin.com/in/ashfaaqrifath/)
+- 🐦 [Twitter](https://twitter.com/ashfaaqrifth)
+- 📖 [SCP Wiki](https://scp-wiki.wikidot.com)
 
-##
-<h1 align="center">
-  <img width="300" src="https://ashfaaqrifath.github.io/aqlogo9.png" alt="Ashfaaq">
-</h1>
+---
+
+## 📄 License
+
+MIT — © 2023 Ashfaaq Rifath
