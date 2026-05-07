@@ -81,7 +81,7 @@ Supported values are `pyttsx3`, `powershell`, `gtts`, and `off`.
 3. Launch the terminal:
 
    ```bash
-   python scp_terminal.py
+   python main.py
    ```
 
 4. Log in and start looking up SCP objects.
